@@ -1,6 +1,6 @@
 FROM alpine:latest
-ARG OPENTTD_VERSION="1.9.3"
-ARG OPENGFX_VERSION="0.5.5"
+ARG OPENTTD_VERSION="1.10.0"
+ARG OPENGFX_VERSION="0.6.0"
 
 RUN mkdir /tmp/build
 
@@ -28,7 +28,7 @@ RUN make -j$(nproc) \
 	&& make install
 
 WORKDIR /usr/share/games/openttd/baseset
-ADD https://binaries.openttd.org/extra/opengfx/$OPENGFX_VERSION/opengfx-$OPENGFX_VERSION-all.zip opengfx.zip
+ADD https://cdn.openttd.org/opengfx-releases/$OPENGFX_VERSION/opengfx-$OPENGFX_VERSION-all.zip opengfx.zip
 RUN unzip opengfx.zip \
     && tar -xf opengfx-$OPENGFX_VERSION.tar -C /usr/local/share/games/openttd/baseset/ \
     && rm -rf opengfx-$OPENGFX_VERSION.tar opengfx.zip
