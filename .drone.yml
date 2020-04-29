@@ -3,7 +3,6 @@ type: docker
 name: openttd-docker
 
 steps:
-  - name: build
   - name: publish
     image: plugins/docker
     settings:
