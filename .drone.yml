@@ -8,6 +8,7 @@ steps:
     settings:
       repo: https://git.magnatox.com/tonymmm1/openttd-docker/src/branch/drone
       registry: https://docker.magnatox.com
+      auto_tag: true
       username: 
         from_secret: docker_username
       password:
