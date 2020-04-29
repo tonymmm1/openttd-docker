@@ -6,7 +6,7 @@ steps:
   - name: publish
     image: plugins/docker
     settings:
-      repo: https://docker.magnatox.com/user1/openttd
+      repo: https://docker.magnatox.com/openttd
       registry: https://docker.magnatox.com
       username: 
         from_secret: docker_username
