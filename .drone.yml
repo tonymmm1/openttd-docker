@@ -6,9 +6,12 @@ steps:
   - name: publish
     image: plugins/docker
     settings:
-      #repo: https://git.magnatox.com/tonymmm1/openttd-docker/src/branch/drone
-      registry: https://docker.magnatox.com/v2
+      repo: user1/openttd
+      registry: https://docker.magnatox.com
       username: 
         from_secret: docker_username
       password:
         from_secret: docker_password
+      tags:
+        - latest
+        - $(DRONE_COMMIT_BRANCH}
