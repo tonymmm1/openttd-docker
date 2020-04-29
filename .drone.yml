@@ -1,0 +1,16 @@
+kind: pipeline
+type: docker
+name: openttd-docker
+
+steps:
+  - name: build
+  - name: publish
+    image: plugins/docker
+    settings:
+      repo: https://git.magnatox.com/tonymmm1/openttd-docker/src/branch/drone
+      registry: https://docker.magnatox.com
+      username: 
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+
