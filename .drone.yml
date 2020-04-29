@@ -7,9 +7,8 @@ steps:
     image: plugins/docker
     settings:
       repo: https://git.magnatox.com/tonymmm1/openttd-docker/src/branch/drone
-      registry: https://docker.magnatox.com
+      registry: https://docker.magnatox.com/v2
       username: 
         from_secret: docker_username
       password:
         from_secret: docker_password
-      auto_tag: true
