@@ -16,9 +16,8 @@ RUN apk --no-cache add \
     wget  
 
 WORKDIR /tmp/build
-RUN git clone https://github.com/OpenTTD/OpenTTD.git
+RUN git clone -b $OPENTTD_VERSION --depth 1 https://github.com/OpenTTD/OpenTTD.git
 WORKDIR /tmp/build/OpenTTD 
-RUN git checkout $OPENTTD_VERSION
 RUN ./configure \
     --enable-dedicated \
     --binary-dir=bin \
