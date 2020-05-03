@@ -6,12 +6,14 @@ steps:
   - name: publish
     image: plugins/docker
     settings:
-      repo: docker.magnatox.com/user1/openttd
+      repo: docker.magnatox.com/openttd/openttd
       registry: https://docker.magnatox.com
       username: 
         from_secret: docker_username
       password:
         from_secret: docker_password
-      tags:
+      tag:
         - latest
-        - ${DRONE_COMMIT_BRANCH}
+        - ${DRONE_TAG}
+    when:
+      event: tag
