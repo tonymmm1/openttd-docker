@@ -17,8 +17,8 @@ RUN apk --no-cache add \
 
 WORKDIR /tmp/build
 RUN git clone -b $OPENTTD_VERSION --depth 1 https://github.com/OpenTTD/OpenTTD.git
-WORKDIR /tmp/build/OpenTTD 
-RUN mkdir build \
+RUN cd OpenTTD \
+    && mkdir build \
     && cd build \
     && cmake -DOPTION_DEDICATED=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo -DOPTION_USE_ASSERTS=OFF .. \
     && make -j$(nproc) \ 
@@ -31,7 +31,7 @@ RUN unzip opengfx.zip \
     && rm -rf opengfx-$OPENGFX_VERSION.tar opengfx.zip
 
 #openttd
-FROM alpine:latest AS openttd
+FROM alpine:latest
 COPY --from=build /usr/local/games/openttd /usr/local/games/openttd
 COPY --from=build /usr/local/share/games/openttd /usr/local/share/games/openttd
 RUN apk --no-cache add \
