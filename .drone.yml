@@ -1,5 +1,5 @@
 kind: pipeline
-type: default
+type: docker
 name: openttd-docker
 
 steps:
